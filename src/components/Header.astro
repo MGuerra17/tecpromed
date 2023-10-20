@@ -1,0 +1,24 @@
+---
+import Linkedin from '../components/links/Linkedin.astro'
+import Twitter from '../components/links/Twitter.astro'
+
+interface Props {
+  darkIcons?: boolean
+}
+
+const { darkIcons } = Astro.props
+---
+
+<header class='w-full flex justify-between items-center py-4'>
+  <a href='/'>
+    <img src='/default_logo.svg' alt='Tecpromed logo' class='w-12' />
+  </a>
+  <div class=`flex gap-x-4 items-center ${darkIcons ? 'lg:text-dark' : 'lg:text-light'}`>
+    <a class='transition-all hover:-translate-y-0.5' href='#'>
+      <Linkedin />
+    </a>
+    <a class='transition-all hover:-translate-y-0.5' href='#'>
+      <Twitter />
+    </a>
+  </div>
+</header>

@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Header from '../../components/Header.astro'
+---
+
+<Layout title='Tecpromed S.A.S - Contacto'>
+  <main class='w-full max-w-7xl mx-auto relative flex-grow px-6'>
+    <Header darkIcons />
+    <h1 class='text-5xl font-bold text-center my-8'>¡Contáctanos Hoy!</h1>
+    <p class='text-center max-w-md text-sm mx-auto'>
+      Descubre cómo nuestra tecnología y experiencia pueden transformar tu práctica médica. Contacta con nosotros para una
+      demostración personalizada.
+    </p>
+    <div class='flex w-full mt-10 justify-center'>
+      <div class='w-1/2 bg-dark rounded-3xl p-8'>
+        <label class='block mb-4 text-white font-bold text-lg' for='name'>Nombre</label>
+        <input
+          id='name'
+          type='text'
+          placeholder='Tu nombre aqui'
+          class='w-full p-3 mb-4 rounded-lg bg-transparent border border-neutral-600 text-white placeholder-white placeholder-opacity-50'
+        />
+        <label class='block mb-4 text-white font-bold text-lg' for='email'>Correo electrónico</label>
+        <input
+          id='email'
+          type='text'
+          placeholder='Correo electrónico'
+          class='w-full p-3 mb-4 rounded-lg bg-transparent border border-neutral-600 text-white placeholder-white placeholder-opacity-50'
+        />
+        <label class='block mb-4 text-white font-bold text-lg' for='message'>Mensaje</label>
+        <textarea
+          id='message'
+          placeholder='Mensaje'
+          class='w-full p-3 mb-4 rounded-lg bg-transparent border border-neutral-600 text-white placeholder-white placeholder-opacity-50'
+        ></textarea>
+        <button class='bg-primary-500 text-white rounded-lg w-full bg-primary px-8 py-3'>Enviar</button>
+      </div>
+    </div>
+  </main>
+</Layout>
