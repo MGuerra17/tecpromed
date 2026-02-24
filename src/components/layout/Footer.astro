@@ -1,0 +1,69 @@
+---
+import Linkedin from '../links/Linkedin.astro'
+import Facebook from '../links/Facebook.astro'
+import Instagram from '../links/Instagram.astro'
+const currentYear = new Date().getFullYear()
+---
+
+<footer class="bg-dark text-light mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a href="/" class="inline-block mb-4">
+          <img src="/default_logo.svg" alt="Tecpromed SAS" class="h-10 w-auto opacity-90" width="48" height="40" />
+        </a>
+        <p class="text-sm text-light/80 max-w-xs">
+          Tecnología y soluciones para el sector salud en Colombia. Software médico, equipos y SaaS.
+        </p>
+      </div>
+
+      <!-- Contacto -->
+      <div>
+        <h3 class="font-semibold text-light mb-4 text-sm uppercase tracking-wider">Contacto</h3>
+        <ul class="space-y-3 text-sm text-light/90">
+          <li>
+            <a href="mailto:contacto@tecpromed.com" class="hover:text-secondary transition-colors">contacto@tecpromed.com</a>
+          </li>
+          <li>Carrera 51B #94-160</li>
+          <li>Colombia</li>
+        </ul>
+      </div>
+
+      <!-- Enlaces rápidos -->
+      <div>
+        <h3 class="font-semibold text-light mb-4 text-sm uppercase tracking-wider">Enlaces</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/" class="hover:text-secondary transition-colors">Inicio</a></li>
+          <li><a href="/#servicios" class="hover:text-secondary transition-colors">Servicios</a></li>
+          <li><a href="/#productos" class="hover:text-secondary transition-colors">Productos</a></li>
+          <li><a href="/contacto" class="hover:text-secondary transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal y redes -->
+      <div>
+        <h3 class="font-semibold text-light mb-4 text-sm uppercase tracking-wider">Legal</h3>
+        <ul class="space-y-3 text-sm mb-6">
+          <li><a href="/politica-tratamiento-datos" class="hover:text-secondary transition-colors">Política de tratamiento de datos</a></li>
+          <li><a href="/terminos-y-condiciones" class="hover:text-secondary transition-colors">Términos y condiciones</a></li>
+        </ul>
+        <div class="flex gap-4">
+          <a href="https://www.facebook.com/tecpromed" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full hover:bg-white/10 transition-colors" aria-label="Facebook">
+            <Facebook />
+          </a>
+          <a href="https://www.instagram.com/tecpromed" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full hover:bg-white/10 transition-colors" aria-label="Instagram">
+            <Instagram />
+          </a>
+          <a href="https://www.linkedin.com/company/tecpromed" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full hover:bg-white/10 transition-colors" aria-label="LinkedIn">
+            <Linkedin />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 pt-8 border-t border-light/20 text-center text-sm text-light/70">
+      © {currentYear} Tecpromed SAS. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,102 @@
+---
+interface Props {
+  variant?: 'light' | 'dark'
+}
+
+const { variant = 'light' } = Astro.props
+import Linkedin from '../links/Linkedin.astro'
+import Facebook from '../links/Facebook.astro'
+import Instagram from '../links/Instagram.astro'
+---
+
+<header
+  class:list={[
+    'w-full sticky top-0 z-50 transition-colors duration-300',
+    variant === 'dark' ? 'bg-dark/90 text-light backdrop-blur-sm' : 'bg-light/95 text-dark backdrop-blur-sm border-b border-dark/5'
+  ]}
+  id="site-header"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16 md:h-18">
+      <a href="/" class="flex-shrink-0" aria-label="Tecpromed SAS - Inicio">
+        <img src="/default_logo.svg" alt="Tecpromed SAS - Desarrollo de software médico en Colombia" class="h-10 w-auto" width="48" height="40" />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
+        <a href="/#servicios" class="text-sm font-medium hover:text-primary transition-colors">Servicios</a>
+        <a href="/#productos" class="text-sm font-medium hover:text-primary transition-colors">Productos</a>
+        <a href="/#beneficios" class="text-sm font-medium hover:text-primary transition-colors">Beneficios</a>
+        <a href="/#sobre-nosotros" class="text-sm font-medium hover:text-primary transition-colors">Sobre nosotros</a>
+        <a href="/contacto" class="text-sm font-medium hover:text-primary transition-colors">Contacto</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a
+          href="/contacto"
+          class="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-primary text-white hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
+        >
+          Solicitar asesoría
+        </a>
+        <div class="flex items-center gap-3 pl-2 border-l border-dark/10">
+          <a href="https://www.facebook.com/tecpromed" target="_blank" rel="noopener noreferrer" class="p-1 rounded-full hover:bg-dark/10 transition-colors" aria-label="Facebook">
+            <Facebook />
+          </a>
+          <a href="https://www.instagram.com/tecpromed" target="_blank" rel="noopener noreferrer" class="p-1 rounded-full hover:bg-dark/10 transition-colors" aria-label="Instagram">
+            <Instagram />
+          </a>
+          <a href="https://www.linkedin.com/company/tecpromed" target="_blank" rel="noopener noreferrer" class="p-1 rounded-full hover:bg-dark/10 transition-colors" aria-label="LinkedIn">
+            <Linkedin />
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="flex items-center gap-2 lg:hidden">
+        <a href="/contacto" class="text-sm font-semibold text-primary mr-2">Contacto</a>
+        <button
+          type="button"
+          id="menu-toggle"
+          class="p-2 rounded-lg hover:bg-dark/10 transition-colors"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Abrir menú"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-dark/10 bg-light" aria-hidden="true">
+    <nav class="max-w-7xl mx-auto px-4 py-4 space-y-1" aria-label="Menú móvil">
+      <a href="/#servicios" class="block py-3 px-4 rounded-lg hover:bg-primary/10 text-dark font-medium">Servicios</a>
+      <a href="/#productos" class="block py-3 px-4 rounded-lg hover:bg-primary/10 text-dark font-medium">Productos</a>
+      <a href="/#beneficios" class="block py-3 px-4 rounded-lg hover:bg-primary/10 text-dark font-medium">Beneficios</a>
+      <a href="/#sobre-nosotros" class="block py-3 px-4 rounded-lg hover:bg-primary/10 text-dark font-medium">Sobre nosotros</a>
+      <a href="/contacto" class="block py-3 px-4 rounded-lg hover:bg-primary/10 text-dark font-medium">Contacto</a>
+      <a href="/contacto" class="block py-3 px-4 rounded-lg bg-primary text-white text-center font-semibold rounded-full mt-4">Solicitar asesoría</a>
+      <div class="flex gap-4 pt-4 px-4">
+        <a href="https://www.facebook.com/tecpromed" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook /></a>
+        <a href="https://www.instagram.com/tecpromed" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram /></a>
+        <a href="https://www.linkedin.com/company/tecpromed" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin /></a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle')
+  const menu = document.getElementById('mobile-menu')
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true'
+      toggle.setAttribute('aria-expanded', String(!expanded))
+      toggle.setAttribute('aria-label', expanded ? 'Abrir menú' : 'Cerrar menú')
+      menu.classList.toggle('hidden')
+    })
+  }
+</script>

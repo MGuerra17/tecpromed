@@ -1,9 +1,16 @@
 ---
-import Layout from '../../layouts/Layout.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Header from '../../components/layout/Header.astro'
+import Footer from '../../components/layout/Footer.astro'
 ---
 
-<Layout title='Tecpromed S.A.S - Política de Tratamiento de Datos Personales'>
-  <main class='px-6 md:px-10 py-10'>
+<BaseLayout
+  title="Política de Tratamiento de Datos Personales"
+  description="Política de Protección y Seguridad de Datos Personales de Tecpromed SAS. Ley 1581 de 2012."
+  canonicalPath="/politica-tratamiento-datos"
+>
+  <Header />
+  <main class='px-4 sm:px-6 lg:px-8 py-10 md:py-14 max-w-4xl mx-auto'>
     <h1 class='text-3xl font-bold mb-6'>Política de Tratamiento de Datos Personales</h1>
     <h3 class='text-lg font-bold my-6'>1. INFORMACION ENTIDAD RESPONSABLE DE TRATAMIENTO DE DATOS</h3>
     <p>
@@ -390,4 +397,5 @@ import Layout from '../../layouts/Layout.astro'
       a través del sitio web: www.tecpromed.com.
     </p>
   </main>
-</Layout>
+  <Footer />
+</BaseLayout>

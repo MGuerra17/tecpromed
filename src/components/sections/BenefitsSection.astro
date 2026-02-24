@@ -1,0 +1,51 @@
+---
+const benefits = [
+  {
+    title: 'Enfoque en el sector salud colombiano',
+    description: 'Conocemos la normativa, los procesos y las necesidades de clínicas, hospitales e instituciones de salud en Colombia.'
+  },
+  {
+    title: 'Seguridad de la información',
+    description: 'Datos sensibles protegidos con buenas prácticas, respaldo y cumplimiento de estándares de privacidad y seguridad.'
+  },
+  {
+    title: 'Arquitectura escalable',
+    description: 'Soluciones que crecen con su institución, desde una clínica pequeña hasta un hospital de alta complejidad.'
+  },
+  {
+    title: 'Integraciones con sistemas existentes',
+    description: 'Conectamos con equipos, laboratorios, facturación y otros sistemas para un flujo de trabajo integrado.'
+  },
+  {
+    title: 'Soporte técnico especializado',
+    description: 'Equipo con experiencia en salud y tecnología para acompañarlo en la implementación y el día a día.'
+  }
+]
+---
+
+<section id="beneficios" class="py-16 md:py-24 bg-light scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14" data-animate>
+      <h2 class="text-3xl md:text-4xl font-bold text-dark">Por qué elegirnos</h2>
+      <p class="mt-4 text-lg text-dark/80">
+        Diferenciadores que nos permiten entregar valor real al sector salud.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {benefits.map((benefit, i) => (
+        <div
+          class="flex gap-4 p-5 rounded-xl bg-white border border-dark/5 shadow-sm hover:shadow-md hover:border-secondary/30 transition-all duration-300"
+          data-animate
+        >
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark mb-1">{benefit.title}</h3>
+            <p class="text-sm text-dark/75">{benefit.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

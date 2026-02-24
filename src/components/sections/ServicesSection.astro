@@ -1,0 +1,53 @@
+---
+const services = [
+  {
+    title: 'Desarrollo de Software Médico a la Medida',
+    description: 'Soluciones desarrolladas específicamente para su institución: historias clínicas electrónicas, gestión hospitalaria, módulos de inventario y reportes. Cumplimiento normativo y adaptación a sus procesos.',
+    icon: 'code'
+  },
+  {
+    title: 'Alquiler de Equipos Médicos',
+    description: 'Equipamiento médico de calidad para su clínica u hospital. Flexibilidad en plazos y mantenimiento incluido, para que se enfoque en la atención sin preocupaciones operativas.',
+    icon: 'equipment'
+  },
+  {
+    title: 'Soluciones SaaS para Clínicas y Hospitales',
+    description: 'Plataformas en la nube listas para usar: telemedicina, gestión de citas, facturación y más. Implementación rápida, actualizaciones constantes y soporte especializado en sector salud.',
+    icon: 'cloud'
+  }
+]
+---
+
+<section id="servicios" class="py-16 md:py-24 bg-light scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-14" data-animate>
+      <h2 class="text-3xl md:text-4xl font-bold text-dark">Nuestros Servicios</h2>
+      <p class="mt-4 text-lg text-dark/80">
+        Ofrecemos desarrollo tecnológico, equipamiento y suscripciones SaaS pensados para el sector salud en Colombia.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {services.map((service, i) => (
+        <article
+          class="group relative bg-white rounded-2xl p-8 shadow-lg shadow-dark/5 border border-dark/5 hover:shadow-xl hover:shadow-primary/10 hover:border-primary/20 transition-all duration-300 hover:-translate-y-1"
+          data-animate
+          style={`animation-delay: ${i * 0.1}s`}
+        >
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-6 group-hover:from-primary/25 group-hover:to-secondary/25 transition-colors">
+            {service.icon === 'code' && (
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+            )}
+            {service.icon === 'equipment' && (
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86 3.86l-.478 2.387a2 2 0 01-.547 1.022L9 21l-3-3 8-8 2.022 2.022a2 2 0 001.022.547l2.387.477a6 6 0 003.86-3.86l.477-2.387a2 2 0 01.547-1.022L21 15l-3 3-2.572-2.572z" /></svg>
+            )}
+            {service.icon === 'cloud' && (
+              <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>
+            )}
+          </div>
+          <h3 class="text-xl font-bold text-dark mb-3">{service.title}</h3>
+          <p class="text-dark/75 leading-relaxed">{service.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

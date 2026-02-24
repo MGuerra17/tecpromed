@@ -1,0 +1,96 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description: string
+  canonicalPath?: string
+  ogImage?: string
+  noHeaderFooter?: boolean
+}
+
+const { title, description, canonicalPath = '', ogImage } = Astro.props
+const siteUrl = 'https://tecpromed.com'
+const canonical = `${siteUrl}${canonicalPath || '/'}`
+const imageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`) : `${siteUrl}/default_logo.svg`
+const fullTitle = title.includes('|') ? title : `${title} | Tecpromed SAS`
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6320EE" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+    <title>{fullTitle}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:site_name" content="Tecpromed SAS" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+  </head>
+  <body class="text-dark bg-light min-h-screen flex flex-col">
+    <div id="app" class="flex flex-col min-h-screen">
+      <slot />
+    </div>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': `${siteUrl}/#organization`,
+          name: 'Tecpromed SAS',
+          url: siteUrl,
+          logo: { '@type': 'ImageObject', url: `${siteUrl}/default_logo.svg` },
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'Carrera 51B #94-160',
+            addressCountry: 'CO'
+          },
+          contactPoint: {
+            '@type': 'ContactPoint',
+            email: 'contacto@tecpromed.com',
+            contactType: 'customer service',
+            areaServed: 'CO'
+          },
+          sameAs: [
+            'https://www.facebook.com/tecpromed',
+            'https://www.instagram.com/tecpromed',
+            'https://www.linkedin.com/company/tecpromed'
+          ]
+        }
+      ]})} />
+
+    <script>
+      (function () {
+        const els = document.querySelectorAll('[data-animate]')
+        if (!els.length) return
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) e.target.classList.add('visible')
+            })
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        )
+        els.forEach((el) => io.observe(el))
+      })()
+    </script>
+  </body>
+</html>

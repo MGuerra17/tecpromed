@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #6320EE;
+  --color-secondary: #48E5C2;
+  --color-background: #FCFCFC;
+  --color-text: #1C1C1C;
+  --gradient-hero: linear-gradient(135deg, #6320EE 0%, #48E5C2 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(99, 32, 238, 0.06) 0%, rgba(72, 229, 194, 0.04) 100%);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased;
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+}
+
+/* Scroll-triggered animation support */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}

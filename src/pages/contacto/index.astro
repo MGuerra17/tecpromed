@@ -1,40 +1,85 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import Header from '../../components/Header.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Header from '../../components/layout/Header.astro'
+import Footer from '../../components/layout/Footer.astro'
 ---
 
-<Layout title='Tecpromed S.A.S - Contacto'>
-  <main class='w-full max-w-7xl mx-auto relative flex-grow px-6'>
-    <Header darkIcons />
-    <h1 class='text-5xl font-bold text-center my-8'>¡Contáctanos Hoy!</h1>
-    <p class='text-center max-w-md text-sm mx-auto'>
-      Descubre cómo nuestra tecnología y experiencia pueden transformar tu práctica médica. Contacta con nosotros para una
-      demostración personalizada.
-    </p>
-    <div class='flex w-full mt-10 justify-center'>
-      <div class='w-1/2 bg-dark rounded-3xl p-8'>
-        <label class='block mb-4 text-white font-bold text-lg' for='name'>Nombre</label>
-        <input
-          id='name'
-          type='text'
-          placeholder='Tu nombre aqui'
-          class='w-full p-3 mb-4 rounded-lg bg-transparent border border-neutral-600 text-white placeholder-white placeholder-opacity-50'
-        />
-        <label class='block mb-4 text-white font-bold text-lg' for='email'>Correo electrónico</label>
-        <input
-          id='email'
-          type='text'
-          placeholder='Correo electrónico'
-          class='w-full p-3 mb-4 rounded-lg bg-transparent border border-neutral-600 text-white placeholder-white placeholder-opacity-50'
-        />
-        <label class='block mb-4 text-white font-bold text-lg' for='message'>Mensaje</label>
-        <textarea
-          id='message'
-          placeholder='Mensaje'
-          class='w-full p-3 mb-4 rounded-lg bg-transparent border border-neutral-600 text-white placeholder-white placeholder-opacity-50'
-        ></textarea>
-        <button class='bg-primary-500 text-white rounded-lg w-full bg-primary px-8 py-3'>Enviar</button>
+<BaseLayout
+  title="Contacto"
+  description="Solicite asesoría para software médico, alquiler de equipos o soluciones SaaS para su clínica u hospital en Colombia. Tecpromed SAS."
+  canonicalPath="/contacto"
+>
+  <Header />
+  <main class="flex-grow py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-dark">Solicitar asesoría</h1>
+        <p class="mt-4 text-lg text-dark/80">
+          Cuéntenos sobre su institución y necesidades. Le responderemos a la brevedad para coordinar una demostración o reunión sin compromiso.
+        </p>
+      </div>
+      <div class="max-w-xl mx-auto">
+        <form
+          class="bg-white rounded-2xl shadow-lg border border-dark/5 p-6 md:p-8 space-y-5"
+          action="#"
+          method="post"
+          aria-label="Formulario de contacto"
+        >
+          <div>
+            <label for="name" class="block text-sm font-semibold text-dark mb-2">Nombre completo</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Su nombre o el de su institución"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-dark/20 bg-light text-dark placeholder-dark/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-semibold text-dark mb-2">Correo electrónico</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="correo@ejemplo.com"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-dark/20 bg-light text-dark placeholder-dark/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow"
+            />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-dark mb-2">Teléfono <span class="text-dark/50 font-normal">(opcional)</span></label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="+57 300 123 4567"
+              class="w-full px-4 py-3 rounded-xl border border-dark/20 bg-light text-dark placeholder-dark/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow"
+            />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-semibold text-dark mb-2">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Describa brevemente su institución y qué tipo de solución le interesa (software médico, equipos, SaaS...)"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-dark/20 bg-light text-dark placeholder-dark/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow resize-y min-h-[120px]"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full py-4 rounded-xl font-semibold bg-primary text-white hover:opacity-95 transition-opacity shadow-lg shadow-primary/25"
+          >
+            Enviar solicitud
+          </button>
+        </form>
+        <p class="mt-6 text-center text-sm text-dark/70">
+          También puede escribirnos a <a href="mailto:contacto@tecpromed.com" class="text-primary font-medium hover:underline">contacto@tecpromed.com</a> o llamarnos.
+        </p>
       </div>
     </div>
   </main>
-</Layout>
+  <Footer />
+</BaseLayout>

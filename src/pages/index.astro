@@ -1,65 +1,39 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Header from '../components/Header.astro'
-import HomeBanner from '../components/banners/HomeBanner.astro'
-import IdeaIcon from '../components/icons/IdeaIcon.astro'
-import PulseIcon from '../components/icons/PulseIcon.astro'
-import SecurityIcon from '../components/icons/SecurityIcon.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Header from '../components/layout/Header.astro'
+import Footer from '../components/layout/Footer.astro'
+import HeroSection from '../components/sections/HeroSection.astro'
+import ServicesSection from '../components/sections/ServicesSection.astro'
+import ProductsSection from '../components/sections/ProductsSection.astro'
+import BenefitsSection from '../components/sections/BenefitsSection.astro'
+import AboutSection from '../components/sections/AboutSection.astro'
+import TrustSection from '../components/sections/TrustSection.astro'
+import CTASection from '../components/sections/CTASection.astro'
 ---
 
-<Layout title='Tecpromed S.A.S - Inicio'>
-  <div class='w-full flex'>
-    <div class='flex-1 h-screen'></div>
-    <main class='w-full max-w-7xl mx-auto relative flex-grow px-6'>
-      <Header />
-      <HomeBanner />
-      <h1
-        class='text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-center lg:text-left mx-auto lg:mx-0 font-bold max-w-[50rem] mt-10'
-      >
-        Siempre un paso <span class='text-secondary'>adelante</span> en la atencion del paciente
-      </h1>
-      <p class='max-w-xs md:max-w-md lg:max-w-lg mt-8 text-xs sm:text-base lg:text-lg text-center lg:text-left mx-auto lg:mx-0'>
-        Descubre cómo nuestro software médico y servicios de atención médica pueden transformar tu flujo de trabajo y la forma en
-        que cuidas de tus pacientes.
-      </p>
-      <div class='w-full lg:w-fit flex justify-center'>
-        <a class='px-8 md:px-16 py-3 rounded-full text-xs md:text-base font-bold bg-primary text-light mt-8' href='/contacto'
-          >Contactar</a
-        >
-      </div>
-      <img
-        src='/handshake.webp'
-        alt='Handshake'
-        class='w-[500px] h-[322px] object-cover absolute right-[calc(25%-200px)] top-44 rounded-3xl -z-10 hidden lg:block'
-      />
-      <div class='w-full lg:w-3/4 lg:pr-10 pb-10'>
-        <div
-          class='w-full bg-dark py-8 md:py-0 gap-y-12 md:h-48 mt-8 rounded-2xl flex justify-evenly items-center flex-col md:flex-row'
-        >
-          <div class='flex-col items-center w-40'>
-            <div class='bg-light rounded-full aspect-square w-14 mx-auto flex justify-center items-center mb-2'>
-              <IdeaIcon />
-            </div>
-            <h4 class='text-light font-bold text-center mb-2'>Innovacion</h4>
-            <p class='w-40 text-light text-center text-xs'>Mejoras en el diagnóstico y tratamiento</p>
-          </div>
-          <div class='flex-col items-center w-40'>
-            <div class='bg-light rounded-full aspect-square w-14 mx-auto flex justify-center items-center mb-2'>
-              <PulseIcon />
-            </div>
-            <h4 class='text-light font-bold text-center mb-2'>Eficiencia</h4>
-            <p class='w-40 text-light text-center text-xs'>Gestion más eficiente del flujo de trabajo</p>
-          </div>
-          <div class='flex-col items-center w-40'>
-            <div class='bg-light rounded-full aspect-square w-14 mx-auto flex justify-center items-center mb-2'>
-              <SecurityIcon />
-            </div>
-            <h4 class='text-light font-bold text-center mb-2'>Seguridad</h4>
-            <p class='w-40 text-light text-center text-xs'>Rigurosos metodos de protección de datos</p>
-          </div>
-        </div>
-      </div>
-    </main>
-    <div class='flex-1 h-screen bg-primary'></div>
-  </div>
-</Layout>
+<BaseLayout
+  title="Desarrollo de Software Médico en Colombia | Tecpromed SAS"
+  description="Tecpromed SAS: desarrollo de software médico a la medida, alquiler de equipos médicos y soluciones SaaS para clínicas y hospitales en Colombia. Transformación digital en salud."
+  canonicalPath=""
+>
+  <Header />
+  <main>
+    <HeroSection />
+    <ServicesSection />
+    <ProductsSection />
+    <BenefitsSection />
+    <AboutSection />
+    <TrustSection />
+    <CTASection />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Tecpromed SAS',
+  description: 'Desarrollo de software médico, alquiler de equipos médicos y soluciones SaaS para clínicas y hospitales en Colombia.',
+  url: 'https://tecpromed.com',
+  areaServed: { '@type': 'Country', name: 'Colombia' }
+})} />

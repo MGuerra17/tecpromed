@@ -1,9 +1,16 @@
 ---
-import Layout from '../../layouts/Layout.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Header from '../../components/layout/Header.astro'
+import Footer from '../../components/layout/Footer.astro'
 ---
 
-<Layout title='Tecpromed S.A.S - Términos y condiciones'>
-  <main class='px-6 md:px-10 py-10'>
+<BaseLayout
+  title="Términos y condiciones"
+  description="Términos y condiciones de uso del sitio web y aplicaciones de Tecpromed SAS."
+  canonicalPath="/terminos-y-condiciones"
+>
+  <Header />
+  <main class='px-4 sm:px-6 lg:px-8 py-10 md:py-14 max-w-4xl mx-auto'>
     <h1 class='text-3xl font-bold mb-6'>Términos y condiciones de uso de nuestras aplicaciones</h1>
     <p>
       Estos son los términos y condiciones del sitio web y aplicaciones de TECPROMED SAS (en adelante <span class='font-bold'
@@ -148,4 +155,5 @@ import Layout from '../../layouts/Layout.astro'
       por el que ya has realizado el pago.
     </p>
   </main>
-</Layout>
+  <Footer />
+</BaseLayout>
