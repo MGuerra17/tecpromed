@@ -1,0 +1,11 @@
+{
+  "client": "Unidad Cardiológica de Cartagena",
+  "versions": [
+    {
+      "version": "1.0.3",
+      "date": "2026-03-24",
+      "fileUrl": "/ucc-assets/invoice-packager/UCC Invoice Packager 1.0.3.rar",
+      "changelog": ["Versión inicial subida al portal", "Protección por contraseña añadida"]
+    }
+  ]
+}
